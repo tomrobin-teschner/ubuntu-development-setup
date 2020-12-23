@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ensure we are running aws root
+# ensure we are running as root
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 
    exit 1
