@@ -7,7 +7,7 @@ set -e
 trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 
 # echo an error message before exiting
-trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
+trap 'echo "\"${last_command}\" command did exit with code $?."' EXIT
 
 # get latest updates
 sudo apt-get -y update
@@ -42,13 +42,21 @@ cd Lmod-8.4/
 ./configure --prefix=/opt/apps CFLAGS="-I /usr/include/lua5.3/"
 sudo make install
 sudo ln -s /opt/apps/lmod/lmod/init/profile /etc/profile.d/z00_lmod.sh
-source /etc/profile.d/z00_lmod.sh
+source /etc/profile
 cd $CURRENT_DIR
 
 # install easy build
 EASYBUILD_PREFIX=$HOME/.local/easybuild
 wget https://raw.githubusercontent.com/easybuilders/easybuild-framework/develop/easybuild/scripts/bootstrap_eb.py -P $EASYBUILD_PREFIX
-sudo chown -R $USER ~/.local/
 python3 $EASYBUILD_PREFIX/bootstrap_eb.py $EASYBUILD_PREFIX
-module use $EASYBUILD_PREFIX/modules/all
+rm -rf z01_user_commands.sh 
+touch z01_user_commands.sh
+echo "#!/bin/bash" >> z01_user_commands.sh
+echo >> z01_user_commands.sh
+echo "### user defined commands to execute on shell startup" >> z01_user_commands.sh
+echo module use $EASYBUILD_PREFIX/modules/all >> z01_user_commands.sh
+sudo mv z01_user_commands.sh /etc/profile.d/.
+source /etc/profile
+echo "Sanity check, the line below should print easy build's version"
 module load EasyBuild
+eb --version
