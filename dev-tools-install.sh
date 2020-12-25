@@ -14,6 +14,8 @@ sudo apt-get -y update
 
 # install essential build tools (default versions)
 sudo apt-get -y install build-essential
+sudo apt-get -y install libssl-dev
+sudo apt-get -y install libibverbs-dev
 
 # install clang compiler and tools
 sudo apt-get -y install clang
