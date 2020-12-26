@@ -21,6 +21,7 @@ sudo apt -y install python3-dev
 
 # install development tools
 sudo apt -y install tig
+sudo apt -y install gcovr
 
 # install clang compiler and tools
 sudo apt -y install clang
