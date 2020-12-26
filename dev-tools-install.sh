@@ -64,3 +64,6 @@ source /etc/profile
 echo "Sanity check, the line below should print easy build's version"
 module load EasyBuild
 eb --version
+
+# install GCC-based foss toolchain components
+eb --trace GCCcore-9.3.0.eb --robot
