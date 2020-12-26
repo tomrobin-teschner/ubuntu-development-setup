@@ -12,10 +12,12 @@ trap 'echo "\"${last_command}\" command did exit with code $?."' EXIT
 # get latest updates
 sudo apt-get -y update
 
-# install essential build tools (default versions)
+# install essential build and develop tools (default versions)
 sudo apt-get -y install build-essential
 sudo apt-get -y install libssl-dev
 sudo apt-get -y install libibverbs-dev
+sudo apt-get -y install cmake
+sudo apt-get -y install python3-dev
 
 # install clang compiler and tools
 sudo apt-get -y install clang
