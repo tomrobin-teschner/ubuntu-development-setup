@@ -10,31 +10,31 @@ trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 trap 'echo "\"${last_command}\" command did exit with code $?."' EXIT
 
 # get latest updates
-sudo apt-get -y update
+sudo apt -y update
 
 # install essential build and develop tools (default versions)
-sudo apt-get -y install build-essential
-sudo apt-get -y install libssl-dev
-sudo apt-get -y install libibverbs-dev
-sudo apt-get -y install cmake
-sudo apt-get -y install python3-dev
+sudo apt -y install build-essential
+sudo apt -y install libssl-dev
+sudo apt -y install libibverbs-dev
+sudo apt -y install cmake
+sudo apt -y install python3-dev
 
 # install clang compiler and tools
-sudo apt-get -y install clang
-sudo apt-get -y install clang-format
-sudo apt-get -y install clang-tidy
-sudo apt-get -y install clang-tools
+sudo apt -y install clang
+sudo apt -y install clang-format
+sudo apt -y install clang-tidy
+sudo apt -y install clang-tools
 
 # LMOD prerequisits
-sudo apt-get -y install lua5.3
-sudo apt-get -y install liblua5.3-dev
-sudo apt-get -y install lua-posix-dev
-sudo apt-get -y install lua-term-dev
-sudo apt-get -y install lua-lpeg-dev
-sudo apt-get -y install lua-bitop-dev
-sudo apt-get -y install lua-json
+sudo apt -y install lua5.3
+sudo apt -y install liblua5.3-dev
+sudo apt -y install lua-posix-dev
+sudo apt -y install lua-term-dev
+sudo apt -y install lua-lpeg-dev
+sudo apt -y install lua-bitop-dev
+sudo apt -y install lua-json
 
-sudo apt-get -y install tcl-dev
+sudo apt -y install tcl-dev
 
 # LMOD
 CURRENT_DIR=$(pwd)
