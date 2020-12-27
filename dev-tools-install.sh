@@ -57,7 +57,7 @@ cd $CURRENT_DIR
 EASYBUILD_PREFIX=$HOME/.local/easybuild
 wget https://raw.githubusercontent.com/easybuilders/easybuild-framework/develop/easybuild/scripts/bootstrap_eb.py -P $EASYBUILD_PREFIX
 python3 $EASYBUILD_PREFIX/bootstrap_eb.py $EASYBUILD_PREFIX
-rm -rf z01_user_commands.sh 
+rm -rf z01_user_commands.sh
 touch z01_user_commands.sh
 echo "#!/bin/bash" >> z01_user_commands.sh
 echo >> z01_user_commands.sh
@@ -70,4 +70,5 @@ module load EasyBuild
 eb --version
 
 # install GCC-based foss toolchain components
-eb --trace GCCcore-9.3.0.eb --robot
+eb --trace --robot --optarch=$(uname -m) gompi-2020b.eb
+eb --trace --robot --optarch=$(uname -m) Meson-0.55.3-GCCcore-10.2.0.eb
