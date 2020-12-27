@@ -69,4 +69,5 @@ module load EasyBuild
 eb --version
 
 # install GCC-based foss toolchain components
-eb --trace GCCcore-9.3.0.eb --robot
+eb --trace --robot gompi-2020b.eb
+eb --trace --robot Meson-0.55.3-GCCcore-10.2.0.eb
