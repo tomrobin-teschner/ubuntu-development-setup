@@ -69,6 +69,11 @@ echo "Sanity check, the line below should print easy build's version"
 module load EasyBuild
 eb --version
 
-# install GCC-based foss toolchain components
+# install GCC-based toolchains
+eb --trace --robot --optarch=$(uname -m) GCCcore-9.3.0.eb
+eb --trace --robot --optarch=$(uname -m) GCCcore-10.2.0.eb
 eb --trace --robot --optarch=$(uname -m) gompi-2020b.eb
-eb --trace --robot --optarch=$(uname -m) Meson-0.55.3-GCCcore-10.2.0.eb
+eb --trace --robot --optarch=$(uname -m) foss-2020b.eb
+
+# install MESON build system
+eb --trace --robot Meson-0.55.3-GCCcore-10.2.0.eb
