@@ -1,6 +1,3 @@
-The provided script provides some useful default installations for ubuntu 20.04 or higher. It's main purpose is to provide a somewhat sane default installation for scientific / HPC orientated applications (c/c++ compilers, distributed memory management (MPI), build systems, etc.)
+The provided script provides some useful installations for ubuntu 20.04 or higher. Its main purpose is to provide a somewhat sane environmnt for scientific / HPC orientated application development (c/c++ compilers, distributed memory management (MPI), build systems, etc.)
 
-Todo:
-* add easy build modules for libraries
-* add software packages to module system
-* add build scripts
+The default compilers that will be installed are GCC and Clang. Based on that, the lua-based module system [LMOD](https://lmod.readthedocs.io/en/latest/) will be installed, as well as the HPC package management system [easybuild](https://docs.easybuild.io/en/latest/index.html). Easybuild will allow to easily install software and libraries that may be useful for development purposes.
