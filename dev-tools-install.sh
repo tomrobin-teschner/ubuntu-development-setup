@@ -70,8 +70,6 @@ module load EasyBuild
 eb --version
 
 # install GCC-based toolchains
-eb --trace --robot --optarch=$(uname -m) GCCcore-9.3.0.eb
-eb --trace --robot --optarch=$(uname -m) GCCcore-10.2.0.eb
 eb --trace --robot gompi-2020b.eb
 eb --trace --robot foss-2020b.eb
 
@@ -79,4 +77,6 @@ eb --trace --robot foss-2020b.eb
 eb --trace --robot Meson-0.55.3-GCCcore-10.2.0.eb
 
 # developer libraries and tools
+eb --trace --robot --try-software-version=3.3.9 Eigen-3.3.8-GCCcore-10.2.0.eb
 eb --trace --robot --try-toolchain-version=2020b HDF5-1.12.0-gompi-2020a.eb
+eb --trace --robot JsonCpp-1.9.4-GCCcore-10.2.0.eb
