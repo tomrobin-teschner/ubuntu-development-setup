@@ -81,4 +81,5 @@ eb --trace --robot --try-software-version=3.3.9 Eigen-3.3.8-GCCcore-10.2.0.eb
 eb --trace --robot --try-toolchain-version=2020b easyconfig/HDF5-1.12.0-gompi-2020a.eb
 eb --trace easyconfig/CGNS-4.1.0-gompi-2020b.eb
 eb --trace easyconfig/googletest-1.10.0-GCCcore-10.2.0.eb
+eb --trace --robot Doxygen-1.8.20-GCCcore-10.2.0.eb
 eb --trace JsonCpp-1.9.4-GCCcore-10.2.0.eb
