@@ -18,10 +18,12 @@ sudo apt -y install libssl-dev
 sudo apt -y install libibverbs-dev
 sudo apt -y install cmake
 sudo apt -y install python3-dev
+sudo apt -y install python3-pip
 
 # install development tools
 sudo apt -y install tig
 sudo apt -y install gcovr
+pip3 install Sphinx
 
 # install clang compiler and tools
 sudo apt -y install clang
@@ -83,4 +85,3 @@ eb --trace --robot easyconfig/CGNS-4.1.0-gompi-2020b.eb
 eb --trace --robot easyconfig/googletest-1.10.0-GCCcore-10.2.0.eb
 eb --trace --robot Doxygen-1.8.20-GCCcore-10.2.0.eb
 eb --trace --robot JsonCpp-1.9.4-GCCcore-10.2.0.eb
-eb --trace --robot Sphinx-1.8.1-foss-2020b-Python-3.8.6.eb
