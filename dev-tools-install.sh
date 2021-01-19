@@ -9,8 +9,8 @@ trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 # echo an error message before exiting
 trap 'echo "\"${last_command}\" command did exit with code $?."' EXIT
 
-# get latest updates
-sudo apt -y update
+# # get latest updates
+# sudo apt -y update
 
 # install essential build tools (default versions)
 sudo apt -y install build-essential
@@ -88,3 +88,11 @@ eb --trace --robot JsonCpp-1.9.4-GCCcore-10.2.0.eb
 # additional developer libraries and tools installed through pip
 pip3 install Sphinx==3.4.2
 cp -r modulefiles/Sphinx ~/.local/easybuild/modules/all/.
+
+# install OpenFOAM
+wget https://sourceforge.net/projects/openfoam/files/v2012/OpenFOAM-v2012-windows10.tgz -P $HOME/
+sudo tar -xvzf  $HOME/OpenFOAM-v2012-windows10.tgz -C /opt/
+sudo chown -R $USER /opt/OpenFOAM-v2012/
+sudo apt -y install bison flex m4
+rm -rf $HOME/OpenFOAM-v2012-windows10.tgz
+cp -r modulefiles/OpenFOAM ~/.local/easybuild/modules/all/.
