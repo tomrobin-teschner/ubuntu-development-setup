@@ -9,8 +9,8 @@ trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 # echo an error message before exiting
 trap 'echo "\"${last_command}\" command did exit with code $?."' EXIT
 
-# # get latest updates
-# sudo apt -y update
+# get latest updates
+sudo apt -y update
 
 # install essential build tools (default versions)
 sudo apt -y install build-essential
@@ -23,6 +23,8 @@ sudo apt -y install python3-pip
 # install development tools
 sudo apt -y install tig
 sudo apt -y install gcovr
+sudo apt -y install vim
+sudo apt -y install cppcheck
 
 # install clang compiler and tools
 sudo apt -y install clang
@@ -50,6 +52,7 @@ tar -xf Lmod-8.4.tar.bz2
 cd Lmod-8.4/
 ./configure --prefix=/opt/apps CFLAGS="-I /usr/include/lua5.3/"
 sudo make install
+# for ubuntu (and not WSL), terminal needs to be login shell
 sudo ln -s /opt/apps/lmod/lmod/init/profile /etc/profile.d/z00_lmod.sh
 source /etc/profile
 cd $CURRENT_DIR
@@ -79,7 +82,7 @@ eb --trace --robot Meson-0.55.3-GCCcore-10.2.0.eb
 
 # developer libraries and tools
 eb --trace --robot --try-software-version=3.3.9 Eigen-3.3.8-GCCcore-10.2.0.eb
-eb --trace --robot --try-toolchain-version=2020b easyconfig/HDF5-1.12.0-gompi-2020a.eb
+eb --trace --robot --try-toolchain-version=2020b easyconfig/HDF5-1.12.0-gompi-2020b.eb
 eb --trace --robot easyconfig/CGNS-4.1.0-gompi-2020b.eb
 eb --trace --robot easyconfig/googletest-1.10.0-GCCcore-10.2.0.eb
 eb --trace --robot Doxygen-1.8.20-GCCcore-10.2.0.eb
@@ -89,10 +92,10 @@ eb --trace --robot JsonCpp-1.9.4-GCCcore-10.2.0.eb
 pip3 install Sphinx==3.4.2
 cp -r modulefiles/Sphinx ~/.local/easybuild/modules/all/.
 
-# install OpenFOAM
-wget https://sourceforge.net/projects/openfoam/files/v2012/OpenFOAM-v2012-windows10.tgz -P $HOME/
-sudo tar -xvzf  $HOME/OpenFOAM-v2012-windows10.tgz -C /opt/
-sudo chown -R $USER /opt/OpenFOAM-v2012/
-sudo apt -y install bison flex m4
-rm -rf $HOME/OpenFOAM-v2012-windows10.tgz
-cp -r modulefiles/OpenFOAM ~/.local/easybuild/modules/all/.
+# # install OpenFOAM
+# wget https://sourceforge.net/projects/openfoam/files/v2012/OpenFOAM-v2012-windows10.tgz -P $HOME/
+# sudo tar -xvzf  $HOME/OpenFOAM-v2012-windows10.tgz -C /opt/
+# sudo chown -R $USER /opt/OpenFOAM-v2012/
+# sudo apt -y install bison flex m4
+# rm -rf $HOME/OpenFOAM-v2012-windows10.tgz
+# cp -r modulefiles/OpenFOAM ~/.local/easybuild/modules/all/.

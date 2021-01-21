@@ -19,7 +19,7 @@ special support for other languages as well.]==])
 whatis([==[Homepage: https://sphinx.pocoo.org/]==])
 whatis([==[URL: https://sphinx.pocoo.org/]==])
 
-local root = "/home/e802985/.local/"
+local root = "/home/tom/.local/"
 
 conflict("Sphinx")
 
