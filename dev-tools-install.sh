@@ -87,6 +87,7 @@ eb --trace --robot easyconfig/CGNS-4.1.0-gompi-2020b.eb
 eb --trace --robot easyconfig/googletest-1.10.0-GCCcore-10.2.0.eb
 eb --trace --robot Doxygen-1.8.20-GCCcore-10.2.0.eb
 eb --trace --robot JsonCpp-1.9.4-GCCcore-10.2.0.eb
+eb --try-toolchain-version=2020b --trace --robot Valgrind-3.16.1-gompi-2020a.eb
 
 # additional developer libraries and tools installed through pip
 pip3 install Sphinx==3.4.2
