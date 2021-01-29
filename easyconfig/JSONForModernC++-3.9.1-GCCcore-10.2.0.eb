@@ -1,0 +1,29 @@
+easyblock = 'CMakeMake'
+
+name = 'JSONForModernC++'
+version = '3.9.1'
+
+homepage = 'https://github.com/nlohmann/json'
+description = """JSON for Modern C++ provides an intuituve syntax, trivial integration
+    and heavily tested JSON implementation using plain c++11"""
+
+# only includes header files, but requires CMake so using non-system toolchain
+toolchain = {'name': 'GCCcore', 'version': '10.2.0'}
+
+source_urls = ['https://github.com/nlohmann/json/archive/']
+sources = ['v%(version)s.tar.gz']
+checksums = ['4cf0df69731494668bdd6460ed8cb269b68de9c19ad8c27abc24cd72605b2d5b']
+
+# using CMake built with GCCcore to avoid relying on the system compiler to build it
+builddependencies = [
+    ('binutils', '2.35'),  # to make CMake compiler health check pass on old systems
+    ('CMake', '3.18.4'),
+]
+
+# ensure header include file can be found
+sanity_check_paths = {
+    'files': ['include/nlohmann/json.hpp'],
+    'dirs': []
+}
+
+moduleclass = 'data'
